@@ -1,4 +1,4 @@
-# 🚀 GitHub Actions CI/CD for Java App on AWS EKS
+# GitHub Actions CI/CD for Java App on AWS EKS
 
 This is a real DevOps project that shows how to build and deploy a Java Spring Boot app using GitHub Actions as a CI/CD tool.
 
