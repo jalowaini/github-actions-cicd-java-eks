@@ -44,13 +44,6 @@ The app is deployed to a Kubernetes Cluster (EKS) on AWS using a complete automa
 
 ---
 
-## 📁 Project Structure
-
-
-.github/workflows/ │ ├── ci-pr.yml # CI workflow on Pull Requests │ └── cd-deploy.yml # CD workflow on push to main ├── Dockerfile ├── pom.xml ├── deployment.yaml ├── service.yaml ├── src/ │ └── main/java/... └── README.md
-
-
----
 
 ## 📈 CI/CD Flow
 
@@ -62,3 +55,9 @@ graph TD
   D --> E[Push to ECR]
   E --> F[Deploy to EKS]
   F --> G[App is Live on Kubernetes!]
+
+---
+
+## 👨‍💻 Author
+
+Built with ❤️ by [@jalowaini](https://github.com/jalowaini)
