@@ -1,59 +1,64 @@
-📦 GitHub Actions CI/CD for Java App on AWS EKS
-This project demonstrates how to build and deploy a Java Spring Boot application using GitHub Actions for a complete CI/CD pipeline.
-The application is deployed to a production-grade Kubernetes cluster (EKS) on AWS.
+# 🚀 GitHub Actions CI/CD for Java App on AWS EKS
 
-🚀 What This Project Covers
-✅ Continuous Integration (CI) – on Pull Requests:
-Checkout source code
+This is a real DevOps project that shows how to build and deploy a Java Spring Boot app using GitHub Actions as a CI/CD tool.
 
-Build the app using Maven
+The app is deployed to a Kubernetes Cluster (EKS) on AWS using a complete automated pipeline.
 
-Run unit tests
+---
 
-🚀 Continuous Deployment (CD) – on Merge to main:
-Build and push Docker image to Amazon ECR
+## 📌 What’s Covered
 
-Update kubeconfig for EKS
+### ✅ CI – On Pull Request:
+- Checkout code from GitHub
+- Build app using Maven
+- Run unit tests
 
-Deploy the updated app to EKS using kubectl
+### 🚀 CD – On Push to `main`:
+- Build Docker image
+- Push image to Amazon ECR
+- Update kubeconfig for EKS
+- Deploy to EKS using `kubectl`
 
-🛠️ Tools Used
+---
 
-Tool	Purpose
-Maven	Build the Java app
-Docker + ECR	Build and store container image
-EKS + kubectl	Deploy to Kubernetes
-GitHub Actions	Automate the CI/CD pipeline
-GitHub Secrets	Store AWS credentials securely
-🔐 GitHub Secrets Required
+## 🧰 Tools Used
 
-Secret Name	Description
-AWS_ACCESS_KEY_ID	IAM user access key
-AWS_SECRET_ACCESS_KEY	IAM user secret key
-AWS_REGION	AWS region (e.g., us-east-1)
-ECR_REPO_URI	URI of the ECR repo
-📂 Project Structure
-bash
-نسخ
-تحرير
-.github/workflows/
-│   ├── ci-pr.yml         # CI pipeline on PR
-│   └── cd-deploy.yml     # CD pipeline on push to main
-├── Dockerfile
-├── pom.xml
-├── src/
-│   └── main/java/...
-├── deployment.yaml
-├── service.yaml
-└── README.md
-📊 CI/CD Workflow Diagram (Optional mermaid if supported)
-mermaid
-نسخ
-تحرير
+| Tool               | Purpose                                |
+|--------------------|----------------------------------------|
+| Maven              | Build Java Spring Boot app             |
+| Docker + Amazon ECR| Build and store Docker image           |
+| EKS + kubectl      | Deploy to AWS-managed Kubernetes       |
+| GitHub Actions     | Automate CI/CD workflow                |
+| GitHub Secrets     | Store AWS credentials securely         |
+
+---
+
+## 🔐 Required GitHub Secrets
+
+| Secret Name             | Description                       |
+|-------------------------|-----------------------------------|
+| `AWS_ACCESS_KEY_ID`     | IAM access key                    |
+| `AWS_SECRET_ACCESS_KEY` | IAM secret key                    |
+| `AWS_REGION`            | AWS region (e.g. us-east-1)       |
+| `ECR_REPO_URI`          | URI of your Amazon ECR repository |
+
+---
+
+## 📁 Project Structure
+
+
+.github/workflows/ │ ├── ci-pr.yml # CI workflow on Pull Requests │ └── cd-deploy.yml # CD workflow on push to main ├── Dockerfile ├── pom.xml ├── deployment.yaml ├── service.yaml ├── src/ │ └── main/java/... └── README.md
+
+
+---
+
+## 📈 CI/CD Flow
+
+```mermaid
 graph TD
   A[Developer Push / PR] --> B[GitHub Actions]
   B --> C[Build with Maven]
   C --> D[Build Docker Image]
   D --> E[Push to ECR]
   E --> F[Deploy to EKS]
-  F --> G[App Live on Kubernetes]
+  F --> G[App is Live on Kubernetes!]
