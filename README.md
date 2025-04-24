@@ -1,67 +1,61 @@
- 🚀 Java CI/CD Pipeline – Spring Boot + Jenkins + AWS EKS
+📦 GitHub Actions CI/CD for Java App on AWS EKS
+This project demonstrates how to build and deploy a Java Spring Boot application using GitHub Actions for a complete CI/CD pipeline. The application is deployed to a production-grade Kubernetes cluster on AWS EKS.
 
-A production-grade CI/CD pipeline that builds, Dockerizes, and deploys a Java Spring Boot application on AWS using Jenkins, ECR, and EKS.
+🚀 What This Project Covers
+Continuous Integration (CI) on Pull Requests:
 
----
+Checkout source code
 
-## 🧰 Tech Stack
+Build the app using Maven
 
-| Tool / Service | Purpose                        |
-|----------------|--------------------------------|
-| Java 17        | Backend Application            |
-| Maven          | Build Tool                     |
-| Docker         | Containerization               |
-| Jenkins        | CI/CD Automation               |
-| Amazon ECR     | Docker Image Registry          |
-| Amazon EKS     | Kubernetes Cluster             |
-| AWS CLI        | AWS Operations & Authentication|
-| kubectl        | Kubernetes CLI Tool            |
+Run unit tests
 
----
+Continuous Deployment (CD) on Merge to main:
 
-## 🧱 Architecture Overview
+Build and push Docker image to Amazon ECR
 
-[ GitHub Repo ] ↓ [ Jenkins (Docker on EC2) ] ↓ [ Maven Build → .jar ] ↓ [ Docker Build → Image ] ↓ [ Push to Amazon ECR ] ↓ [ Deploy to Amazon EKS ] ↓ [ Access via LoadBalancer Service ]
+Update kubeconfig for EKS
 
----
+Deploy the updated app to EKS using kubectl
 
-## 🔄 Jenkins Pipeline Stages
+🛠️ Tools Used
 
-| Stage             | Description                                        |
-|-------------------|----------------------------------------------------|
-| ✅ Checkout        | Pulls source code from GitHub                      |
-| ✅ Maven Build     | Compiles project and generates `.jar`              |
-| ✅ Docker Build    | Builds Docker image from the `.jar`                |
-| ✅ Push to ECR     | Pushes the Docker image to Amazon ECR             |
-| ✅ Deploy to EKS   | Applies Kubernetes manifests (deployment/service) |
-| ✅ Post-deploy Test| Verifies that the app is running and reachable     |
+Tool	Purpose
+Maven	Build the Java app
+Docker + Amazon ECR	Build and store container images
+EKS + kubectl	Deploy to Kubernetes
+GitHub Actions	Automate CI/CD pipeline
+GitHub Secrets	Store AWS credentials securely
+🧱 CI/CD Workflow
+mermaid
+نسخ
+تحرير
+graph TD
+A[Developer Push / PR] --> B[GitHub Actions]
+B --> C[Build with Maven]
+C --> D[Build Docker Image]
+D --> E[Push to ECR]
+E --> F[Deploy to EKS]
+F --> G[App Live on Kubernetes!]
+📁 Folder Structure
+bash
+نسخ
+تحرير
+.
+├── .github/workflows/
+│   ├── ci-pr.yml       # CI pipeline on PR
+│   └── cd-deploy.yml   # CD pipeline on push to main
+├── Dockerfile
+├── pom.xml
+├── src/
+│   └── main/java/...
+├── deployment.yaml
+├── service.yaml
+└── README.md
+🔐 GitHub Secrets Required
 
----
-
-## ✅ Results
-
-- CI/CD is fully automated via Jenkins  
-- Docker Image stored in **Amazon ECR**  
-- App is deployed to **Amazon EKS** with public access  
-- Structure is production-ready and easily extensible  
-
----
-
-## 🔮 Future Enhancements
-
-- 🔐 HTTPS via Ingress + Cert-Manager  
-- 📊 Monitoring with Prometheus & Grafana  
-- 🔄 GitOps with ArgoCD or Helm  
-- 🧪 Automated smoke testing post-deploy  
-
----
-
-## 👨‍💻 Author
-
-Built with ❤️ by [@jalowaini](https://github.com/jalowaini)
-# test webhook
-# test webhook2
-# test webhook3
-# test webhook4
- 
-# Trigger from PR again
+Secret Key	Description
+AWS_ACCESS_KEY_ID	IAM user access key
+AWS_SECRET_ACCESS_KEY	IAM user secret key
+AWS_REGION	AWS region (e.g., us-east-1)
+ECR_REPO_URI	URI of the ECR repo
