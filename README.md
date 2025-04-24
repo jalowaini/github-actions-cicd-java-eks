@@ -42,19 +42,6 @@ The app is deployed to a Kubernetes Cluster (EKS) on AWS using a complete automa
 | `AWS_REGION`            | AWS region (e.g. us-east-1)       |
 | `ECR_REPO_URI`          | URI of your Amazon ECR repository |
 
----
-
-
-## 📈 CI/CD Flow
-
-```mermaid
-graph TD
-  A[Developer Push / PR] --> B[GitHub Actions]
-  B --> C[Build with Maven]
-  C --> D[Build Docker Image]
-  D --> E[Push to ECR]
-  E --> F[Deploy to EKS]
-  F --> G[App is Live on Kubernetes!]
 
 ---
 
