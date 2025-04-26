@@ -6,14 +6,14 @@ The app is deployed to a Kubernetes Cluster (EKS) on AWS using a complete automa
 
 ---
 
-## 📌 What’s Covered
+## What’s Covered
 
-### ✅ CI – On Pull Request:
+### CI – On Pull Request:
 - Checkout code from GitHub
 - Build app using Maven
 - Run unit tests
 
-### 🚀 CD – On Push to `main`:
+### CD – On Push to `main`:
 - Build Docker image
 - Push image to Amazon ECR
 - Update kubeconfig for EKS
@@ -21,7 +21,7 @@ The app is deployed to a Kubernetes Cluster (EKS) on AWS using a complete automa
 
 ---
 
-## 🧰 Tools Used
+## Tools Used
 
 | Tool               | Purpose                                |
 |--------------------|----------------------------------------|
@@ -33,7 +33,7 @@ The app is deployed to a Kubernetes Cluster (EKS) on AWS using a complete automa
 
 ---
 
-## 🔐 Required GitHub Secrets
+## Required GitHub Secrets
 
 | Secret Name             | Description                       |
 |-------------------------|-----------------------------------|
